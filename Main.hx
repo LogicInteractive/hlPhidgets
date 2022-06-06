@@ -2,6 +2,7 @@ package;
 
 import stage.native.phidgets.PhidgetRFID;
 import stage.native.phidgets.PhidgetDigitalOutput;
+import stage.native.phidgets.PhidgetEncoder;
 import haxe.Timer;
 import h2d.Console;
 
