@@ -13,6 +13,10 @@ class PhidgetDigitalOutput
 	public var state(get,set)			: Null<Bool>;	
 	public var channel 					: Int;
 	public var serial 					: Int;
+	public var minFrequency(get,never)	: hl.F64;	
+	public var maxFrequency(get,never)	: hl.F64;	
+	@:isVar
+	public var frequency(get,set)		: hl.F64;	
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
@@ -65,6 +69,19 @@ class PhidgetDigitalOutput
 		return state = value;
 	}
 
+	function get_frequency():hl.F64 return frequency = _getFrequency(digitalOutput);
+	function set_frequency(value:hl.F64):hl.F64
+	{
+		_setFrequency(digitalOutput,value);
+		return frequency = value;
+	}
+
+	function get_minFrequency():hl.F64 return 
+		return _getMinFrequency(digitalOutput);
+
+	function get_maxFrequency():hl.F64 return 
+		return _getMaxFrequency(digitalOutput);
+
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	public function update()
@@ -99,6 +116,10 @@ class PhidgetDigitalOutput
 	@:hlNative("HlPhidgets","digitalOutput_getIsAttached")			static function _getIsAttached(handle:HLPhidgetDigitalOutput):Bool { return false; }
 	@:hlNative("HlPhidgets","digitalOutput_setDigitalOutputState")	static function _setDigitalOutputState(handle:HLPhidgetDigitalOutput,channel:Int,state:Bool):Bool { return false; }
 	@:hlNative("HlPhidgets","digitalOutput_getDigitalOutputState")	static function _getDigitalOutputState(handle:HLPhidgetDigitalOutput,channel:Int):Bool { return false; }
+	@:hlNative("HlPhidgets","digitalOutput_setFrequency")			static function _setFrequency(handle:HLPhidgetDigitalOutput,frequency:hl.F64) { }
+	@:hlNative("HlPhidgets","digitalOutput_getFrequency")			static function _getFrequency(handle:HLPhidgetDigitalOutput):hl.F64 { return 0; }
+	@:hlNative("HlPhidgets","digitalOutput_getMinFrequency")		static function _getMinFrequency(handle:HLPhidgetDigitalOutput):hl.F64 { return 0; }
+	@:hlNative("HlPhidgets","digitalOutput_getMaxFrequency")		static function _getMaxFrequency(handle:HLPhidgetDigitalOutput):hl.F64 { return 0; }
 	@:hlNative("HlPhidgets","digitalOutput_open")					static function _open(handle:HLPhidgetDigitalOutput):Bool { return false; }
 	@:hlNative("HlPhidgets","digitalOutput_close")					static function _close(handle:HLPhidgetDigitalOutput):Bool { return false; }
 	@:hlNative("HlPhidgets","digitalOutput_delete")					static function _delete(handle:HLPhidgetDigitalOutput) { }

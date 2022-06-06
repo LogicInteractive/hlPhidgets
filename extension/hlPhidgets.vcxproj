@@ -130,8 +130,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVS2017|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\dev\haxe\heaps\hlPhidgets\extension\include;c:/HaxeToolkit/hashlink/include/;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\haxe\heaps\hlPhidgets\extension\include\lib;c:/HaxeToolkit/hashlink/;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\dev\haxe\hashlink\hlPhidgets\extension\include;c:/HaxeToolkit/hashlink/include/;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\haxe\hashlink\hlPhidgets\extension\include\lib;c:/HaxeToolkit/hashlink/;$(LibraryPath)</LibraryPath>
     <TargetExt>.hdll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVS2017|Win32'">

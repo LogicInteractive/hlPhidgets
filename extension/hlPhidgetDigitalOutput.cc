@@ -106,6 +106,34 @@ public:
 			return false;
 	}
 
+	double getFrequency()
+	{
+		double frequency;
+		ret = PhidgetDigitalOutput_getFrequency(digitalOutput, &frequency);
+		return frequency;
+	}
+
+	void setFrequency(double frequency)
+	{
+		ret = PhidgetDigitalOutput_setFrequency(digitalOutput, frequency);
+	}
+
+	double getMinFrequency()
+	{
+		double maxFrequency;
+		ret = PhidgetDigitalOutput_getMinFrequency(digitalOutput, &maxFrequency);
+		return maxFrequency;
+	}
+
+	double getMaxFrequency()
+	{
+		double maxFrequency;
+		ret = PhidgetDigitalOutput_getMaxFrequency(digitalOutput, &maxFrequency);
+		// if (res != EPHIDGET_OK)
+		// 	return 1; 
+		return maxFrequency;
+	}
+
 	void _delete()
 	{
 		if (digitalOutput)
@@ -204,6 +232,34 @@ HL_PRIM bool HL_NAME(digitalOutput_getDigitalOutputState)(PhidgetDigitalOutput* 
 	return rfid->getDigitalOutputState();
 }
 
+HL_PRIM double HL_NAME(digitalOutput_getMinFrequency)(PhidgetDigitalOutput* rfid)
+{
+	if (!rfid)
+		return false;
+	return rfid->getMinFrequency();
+}
+
+HL_PRIM double HL_NAME(digitalOutput_getMaxFrequency)(PhidgetDigitalOutput* rfid)
+{
+	if (!rfid)
+		return false;
+	return rfid->getMaxFrequency();
+}
+
+HL_PRIM double HL_NAME(digitalOutput_getFrequency)(PhidgetDigitalOutput* rfid)
+{
+	if (!rfid)
+		return false;
+	return rfid->getFrequency();
+}
+
+HL_PRIM void HL_NAME(digitalOutput_setFrequency)(PhidgetDigitalOutput* rfid, double frequency)
+{
+	if (!rfid)
+		return;
+	rfid->setFrequency(frequency);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 
 #define _PHIDGETDIGITALOUTPUT _ABSTRACT(PhidgetDigitalOutput)
@@ -219,3 +275,7 @@ DEFINE_PRIM(_VOID, digitalOutput_setOnDetachHandler, _PHIDGETDIGITALOUTPUT);
 DEFINE_PRIM(_BOOL, digitalOutput_getIsAttached, _PHIDGETDIGITALOUTPUT);
 DEFINE_PRIM(_BOOL, digitalOutput_setDigitalOutputState, _PHIDGETDIGITALOUTPUT _I32 _BOOL);
 DEFINE_PRIM(_BOOL, digitalOutput_getDigitalOutputState, _PHIDGETDIGITALOUTPUT _I32);
+DEFINE_PRIM(_F64, digitalOutput_getMinFrequency, _PHIDGETDIGITALOUTPUT);
+DEFINE_PRIM(_F64, digitalOutput_getMaxFrequency, _PHIDGETDIGITALOUTPUT);
+DEFINE_PRIM(_F64, digitalOutput_getFrequency, _PHIDGETDIGITALOUTPUT);
+DEFINE_PRIM(_VOID, digitalOutput_setFrequency, _PHIDGETDIGITALOUTPUT _F64);

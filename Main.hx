@@ -26,7 +26,7 @@ class Main extends hxd.App
 		var ph = new PhidgetRFID(601708);
 		ph.onTag = (t)->trace('Tag found: $t');
 		ph.onTagLost = (t)->trace('Tag lost.');
-		ph.antennaEnabled = false;
+		// ph.antennaEnabled = false;
 
 		// new Timer(50).run=()->
 		// {
@@ -37,7 +37,7 @@ class Main extends hxd.App
 		new Timer(160).run=()->
 		{
 			phdo.state = !phdo.state;
-			trace(ph.antennaEnabled);
+			trace(phdo.minFrequency,phdo.maxFrequency);
 		};		
 	}
 
