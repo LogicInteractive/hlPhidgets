@@ -27,13 +27,13 @@ public:
 	std::string currentTag;
 	std::string previousTag;
 	int serial = 0;
-
-private:
 	PhidgetRFIDHandle rfid = NULL;
 	PhidgetDigitalOutputHandle digitalOutput0 = NULL;
 	PhidgetDigitalOutputHandle digitalOutput1 = NULL;
 	PhidgetDigitalOutputHandle digitalOutput2 = NULL;
 	PhidgetReturnCode ret;
+
+private:
 	PhidgetReturnCode errorCode;
 	const char* errorString;
 	char errorDetail[100];

@@ -40,6 +40,8 @@ class Main extends hxd.App
 			phdo.state = !phdo.state;
 			trace(phdo.minFrequency,phdo.maxFrequency);
 		};		
+
+		var enc = new PhidgetEncoder();
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////	

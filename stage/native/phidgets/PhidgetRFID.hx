@@ -1,4 +1,5 @@
 package stage.native.phidgets;
+import stage.native.phidgets.Phidget;
 
 typedef HLPhidgetRFID = hl.Abstract<"PhidgetRFID">;
 
@@ -48,7 +49,7 @@ class PhidgetRFID
 		if (serial!=null)
 		{
 			this.serial = serial;
-			_setDeviceSerialNumber(rfid,serial);
+			Phidget._setDeviceSerialNumber((rfid:HLPhidget),serial);
 		}
 
 		_setOnAttachHandler(rfid);
@@ -76,7 +77,7 @@ class PhidgetRFID
 
 	public function open():Bool
 	{
-		return _open(rfid);
+		return Phidget._open((rfid:HLPhidget));
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +199,6 @@ class PhidgetRFID
 
  	@:hlNative("HlPhidgets","rfid_create")					static function _create():HLPhidgetRFID { return null; }
 	@:hlNative("HlPhidgets","rfid_createRFID")				static function _createRFID(handle:HLPhidgetRFID):Bool { return false; }
-	@:hlNative("HlPhidgets","rfid_setDeviceSerialNumber")	static function _setDeviceSerialNumber(handle:HLPhidgetRFID,serial:Int):Bool { return false; }
 	@:hlNative("HlPhidgets","rfid_setOnAttachHandler")		static function _setOnAttachHandler(handle:HLPhidgetRFID) {};
 	@:hlNative("HlPhidgets","rfid_setOnDetachHandler")		static function _setOnDetachHandler(handle:HLPhidgetRFID) {};
 	@:hlNative("HlPhidgets","rfid_setOnTagHandler")			static function _setOnTagHandler(handle:HLPhidgetRFID) {};
@@ -212,6 +212,7 @@ class PhidgetRFID
 	@:hlNative("HlPhidgets","rfid_open")					static function _open(handle:HLPhidgetRFID):Bool { return false; }
 	@:hlNative("HlPhidgets","rfid_close")					static function _close(handle:HLPhidgetRFID):Bool { return false; }
 	@:hlNative("HlPhidgets","rfid_delete")					static function _delete(handle:HLPhidgetRFID) { }
+	@:hlNative("HlPhidgets","rfid_setDeviceSerialNumber")	static function _setDeviceSerialNumber(handle:HLPhidgetRFID,serial:Int):Bool { return false; }
 
 	@:hlNative("HlPhidgets","rfid_getCurrentTag") static function __getCurrentTag(handle:HLPhidgetRFID):hl.Bytes { return null; }
 	static inline function _getCurrentTag(handle:HLPhidgetRFID):String

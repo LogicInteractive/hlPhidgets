@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="hlPhidgetRFID.cc" />
     <ClCompile Include="hlPhidgetDigitalOutput.cc" />
+    <ClCompile Include="hlPhidgetDigitalInput.cc" />
     <ClCompile Include="hlPhidgetEncoder.cc" />
     <ClCompile Include="hlPhidgets.cc" />
   </ItemGroup>

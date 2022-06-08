@@ -28,6 +28,17 @@ class PhidgetEncoder
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
+	/**
+	 * This creates an instance of a PhidgetEncoder class. 
+	 * Once created the channel may need to be configured to match the physical device and channel index you want to attach to, 
+	 * and then be opened by calling open() if not set to autoOpen.
+	 * The Phidget channel handle must be released with delete() or dispose.
+	 *
+	 * @param  serial the serial of the phidget (optional)
+	 * @param  autoOpen should the phidget call open on created
+	 * @param  autoUpdate should the phidget create a mainloop tick
+	 * @return success
+	 */
 	public function new(?serial:Null<Int>, autoOpen:Bool=true, autoUpdate:Bool=true)
 	{
 		encoder = _create();
@@ -49,6 +60,15 @@ class PhidgetEncoder
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
+
+	/**
+	 * PhidgetEncoder_create() creates an instance of a Phidget channel. 
+	 * Once created the channel may need to be configured to match the physical device and channel index you want to attach to, 
+	 * and then be opened by calling Phidget_open().
+	 * The Phidget channel handle must be released with PhidgetEncoder_delete().
+	 *
+	 * @return success
+	 */
 	public function open():Bool
 	{
 		return _open(encoder);
